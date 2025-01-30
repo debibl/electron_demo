@@ -1,5 +1,5 @@
 body {
-  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
@@ -7,18 +7,17 @@ h1 {
 }
 
 .container {
-  line-height: 8px;
+  line-height: 0.5;
   border: 1px solid black;
+  background-color: #f4e8d3;
   margin: 10px;
   padding: 15px;
 }
 
 .container:hover {
-  background-color: #a2e5bc;
+  background-color: #67ba80;
 }
 
 .container p:first-of-type {
-  line-height: 10px;
   font-size: 20px;
-  font-weight: 600;
 }
