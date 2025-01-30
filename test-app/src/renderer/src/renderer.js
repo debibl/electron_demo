@@ -1,11 +1,13 @@
-const info = document.getElementById('info');
+const info = document.getElementById('info')
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const partners = await window.electronAPI.getPartners();
+  const partners = await window.electronAPI.getPartners()
 
   // info.textContent = JSON.stringify(partners, null, 2); // Преобразуем в строку
-  info.innerHTML = partners.map((p) => (
-    `<div class="container">
+  info.innerHTML = partners
+    .map(
+      (p) =>
+        `<div class="container">
       <p>${p.organization_type} | ${p.name}</p>
       <p>${p.ceo}</p>
       <p>Почта: ${p.email}</p>
@@ -15,5 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       <p>Рейтинг: ${p.rating}</p>
       <p>
     </div>`
-  )).join('');
-});
+    )
+    .join('')
+})
