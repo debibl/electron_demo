@@ -1,0 +1,24 @@
+{
+  "name": "electron_demo",
+  "version": "1.0.0",
+  "description": "Test Electron.js project",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron",
+    "javascript",
+    "npm",
+    "DOM"
+  ],
+  "author": "debibl",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^34.0.1"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}

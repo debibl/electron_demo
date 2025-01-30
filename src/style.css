@@ -1,0 +1,24 @@
+body {
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  line-height: 8px;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 15px;
+}
+
+.container:hover {
+  background-color: #a2e5bc;
+}
+
+.container p:first-of-type {
+  line-height: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
