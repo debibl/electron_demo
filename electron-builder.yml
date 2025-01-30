@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: test-app
+productName: PartnersTable
 directories:
   buildResources: build
 files:

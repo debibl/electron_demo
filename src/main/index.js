@@ -3,8 +3,11 @@ const path = require('node:path')
 const { Client } = require('pg')
 import * as url from 'url'
 
+app.setName('PartnersTable')
+
 const createWindow = () => {
   const win = new BrowserWindow({
+    icon: path.join(__dirname, '../../resources/Мастер пол.ico'),
     width: 800,
     height: 600,
     webPreferences: {
