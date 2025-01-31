@@ -10,13 +10,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         `<div class="container">
       <p>${p.organization_type} | ${p.name}</p>
       <p>${p.ceo}</p>
-      <p>Почта: ${p.email}</p>
-      <p>Телефон: ${p.phone}</p>
-      <p>Адрес: ${p.address}</p>
-      <p>ID: ${p.taxpayer_id}</p>
+      <p>${p.phone}</p>
       <p>Рейтинг: ${p.rating}</p>
       <p>
     </div>`
     )
     .join('')
 })
+
+//
+//
+// info.innerHTML = partners
+// .map(
+//   (p) =>
+//     `<div class="container">
+//   <p>${p.organization_type} | ${p.name}</p>
+//   <p>${p.ceo}</p>
+//   <p>Почта: ${p.email}</p>
+//   <p>Телефон: ${p.phone}</p>
+//   <p>Адрес: ${p.address}</p>
+//   <p>ID: ${p.taxpayer_id}</p>
+//   <p>Рейтинг: ${p.rating}</p>
+//   <p>
+// </div>`
+// )
+// .join('')

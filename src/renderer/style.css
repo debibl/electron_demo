@@ -6,12 +6,19 @@ h1 {
   text-align: center;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .container {
   line-height: 0.5;
   border: 1px solid black;
+  border-radius: 5px;
   background-color: #f4e8d3;
   margin: 10px;
-  padding: 15px;
+  padding: 5px 25px;
+  cursor: pointer;
 }
 
 .container:hover {
@@ -20,4 +27,77 @@ h1 {
 
 .container p:first-of-type {
   font-size: 20px;
+}
+
+.add-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 18px;
+}
+
+.back-btn-container {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.btn {
+  font-size: inherit;
+  padding: 10px 20px;
+  background-color: #f4e8d3;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #67ba80;
+  transform: scale(1.1);
+}
+
+.form-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form-container {
+  padding: 20px;
+  border: 10px solid #f4e8d3;
+  border-radius: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    font-size: 18px;
+  }
+
+  input,
+  select {
+    width: 95%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  select {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  button {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0;
+  }
 }
