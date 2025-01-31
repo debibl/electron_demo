@@ -6,16 +6,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   // info.textContent = JSON.stringify(partners, null, 2); // Преобразуем в строку
   info.innerHTML = partners
     .map(
-      (p) =>
-        `<div class="container">
-      <p>${p.organization_type} | ${p.name}</p>
-      <p>${p.ceo}</p>
-      <p>${p.phone}</p>
-      <p>Рейтинг: ${p.rating}</p>
-      <p>
+      (partner) =>
+        `<div class="container" data-id="${partner.id}">
+      <p>${partner.organization_type} | ${partner.name}</p>
+      <p>${partner.ceo}</p>
+      <p>${partner.phone}</p>
+      <p>Рейтинг: ${partner.rating}</p>
     </div>`
     )
     .join('')
+
+  const containers = document.querySelectorAll('.container')
+  containers.forEach((container) => {
+    container.addEventListener('click', () => {
+      const partnerId = container.getAttribute('data-id')
+      // Переходим на страницу редактирования с ID партнера
+      window.location.href = `./edit.html?id=${partnerId}`
+    })
+  })
 })
 
 //

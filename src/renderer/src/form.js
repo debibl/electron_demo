@@ -11,7 +11,6 @@ form.addEventListener('submit', async (event) => {
     address: event.target.address.value,
     rating: event.target.rating.value
   }
-  console.log('Отправляемый объект:', partner)
   await window.electronAPI.createPartner(partner)
   form.reset()
 })

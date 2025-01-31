@@ -28,17 +28,19 @@ const mainWindow = () => {
   )
 }
 
-// Работаем с базой данных
-async function getPartners() {
-  const client = new Client({
-    user: 'electron',
-    password: '123test',
-    host: 'localhost',
-    port: 5433,
-    database: 'electron'
-  })
+const login = {
+  user: 'electron',
+  password: '123test',
+  host: 'localhost',
+  port: 5433,
+  database: 'electron'
+}
 
+//💾 Работаем с базой данных
+async function getPartners() {
+  const client = new Client(login)
   await client.connect()
+
   const res = await client.query('SELECT * FROM partners;')
   await client.end()
 
@@ -46,13 +48,7 @@ async function getPartners() {
 }
 
 async function createPartner(partner) {
-  const client = new Client({
-    user: 'electron',
-    password: '123test',
-    host: 'localhost',
-    port: 5433,
-    database: 'electron'
-  })
+  const client = new Client(login)
   await client.connect()
 
   const { type, name, ceo, email, phone, address, rating } = partner
@@ -73,7 +69,41 @@ async function createPartner(partner) {
   }
 }
 
-// Работа приложения
+async function updatePartner(partner) {
+  const client = new Client(login)
+  await client.connect()
+
+  const { type, name, ceo, email, phone, address, rating, id } = partner
+  try {
+    await client.query(
+      `UPDATE partners
+      SET organization_type = $1, name = $2, ceo = $3, email = $4, phone = $5, address = $6, rating = $7
+      WHERE partners.id = $8;`,
+      [type, name, ceo, email, phone, address, Number(rating), id]
+    )
+    dialog.showMessageBox({ message: '✅ Информация обновлена!' })
+  } catch (e) {
+    console.log(e)
+    if (e.code === '23505') {
+      // Код ошибки для нарушения уникальности (unique_violation)
+      dialog.showErrorBox('Ошибка', 'Партнёр с таким именем уже существует!')
+    } else {
+      dialog.showErrorBox('Ошибка', e.message || 'Ошибка при создании партнера!')
+    }
+  }
+}
+
+async function getPartnerById(pID) {
+  const client = new Client(login)
+  await client.connect()
+
+  const res = await client.query(`SELECT * FROM partners WHERE id = $1;`, [pID])
+  await client.end()
+
+  return res.rows[0]
+}
+
+//♻️ Работа приложения
 app.whenReady().then(() => {
   // Oбрабатываем запросы
   ipcMain.handle('get-partners', async () => {
@@ -81,6 +111,12 @@ app.whenReady().then(() => {
   })
   ipcMain.handle('create-partner', async (_, partner) => {
     return await createPartner(partner)
+  })
+  ipcMain.handle('update-partner', async (_, partner) => {
+    return await updatePartner(partner)
+  })
+  ipcMain.handle('get-by-id', async (_, pID) => {
+    return await getPartnerById(pID)
   })
 
   mainWindow()

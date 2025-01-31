@@ -2,7 +2,18 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.img-align {
+  margin-top: 15px;
+  text-align: center;
+}
+
+img {
+  width: 50px;
+  height: auto;
+}
+
 h1 {
+  margin-top: 0;
   text-align: center;
 }
 
@@ -40,7 +51,7 @@ a {
   display: flex;
   justify-content: left;
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: 40px;
   font-size: 14px;
 }
 

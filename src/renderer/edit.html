@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <title>Таблица партнеров</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="back-btn-container">
+      <!-- alt + 17 = ◄ -->
+      <!-- alt + 27 = ← -->
+      <button class="btn"><a href="./index.html">← Назад</a></button>
+    </div>
+    <h1>♻️ Редактировать партнера ♻️</h1>
+
+    <div class="form-overlay">
+      <div class="form-container">
+        <form action="" method="get" id="edit-form">
+
+          <label for="name">Наименование: </label>
+          <input type="text" id="name" name="name" required />
+          
+          <label for="select">Тип организации: </label>
+          <select name="type" id="type" required>
+            <option value="">- Выберите тип организации: -</option>
+            <option value="ЗАО">ЗАО</option>
+            <option value="ООО">ООО</option>
+            <option value="ОАО">ОАО</option>  
+            <option value="ПАО">ПАО</option>
+          </select>
+
+          <label for="rating">Рейтинг: </label>
+          <input type="number" id="rating" name="rating" required />
+
+          <label for="ceo">Имя директора: </label>
+          <input type="text" name="ceo" id="ceo" required />
+
+          <label for="email">Почта: </label>
+          <input type="email" name="email" id="email" required />
+
+          <label for="phone">Телефон: </label>
+          <input type="text" pattern="[0-9]*" title="Только числа" name="phone" id="phone" required />
+
+          <label for="address">Адрес: </label>
+          <input type="text" name="address" id="address" required />
+
+          <button type="submit" class="btn">Добавить</button>
+        </form>
+      </div>
+    </div>
+    
+  </body>
+  <script type="module" src="./src/edit.js"></script>
+</html>
